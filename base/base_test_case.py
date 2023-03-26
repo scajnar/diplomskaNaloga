@@ -1,16 +1,30 @@
+import argparse
 import time
 
 from selenium.webdriver.common.by import By
 from seleniumbase import BaseCase, Driver
 from selenium import webdriver
 
-from pages.documentation_page import DocumentationPage
+from pages.TO_DEL_documentation_page import DocumentationPage
 
 
 class BaseTestCase(BaseCase):
     def setUp(self):
         super().setUp()
-        self.driver = webdriver.Chrome()
+        self.driver = None
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--driver', default='Chrome', help='webdriver to use')
+        parser.add_argument('--screen_size', default='1920x1080', help='screen size to set')
+
+        # Parse arguments
+        args = parser.parse_args()
+
+        # Set webdriver options based on arguments
+        if args.driver == 'Chrome':
+            options = webdriver.ChromeOptions()
+            options.add_argument(f'--window-size={args.screen_size}')
+            self.driver = webdriver.Chrome(options=options)
+
         # <<< Run custom setUp() code for tests AFTER the super().setUp() >>>
 
     def tearDown(self):

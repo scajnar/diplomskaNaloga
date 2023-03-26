@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from base.base_web_page_element import BasePageElement
-from base.web_page import Page
+from base.page import Page
 
 
 class DocumentationPage(Page):

@@ -44,3 +44,8 @@ class BasePageElement(WebElement):
 
     def get_attribute_or_property(self, name):
         return self.get_attribute(name) or self.get_property(name)
+
+    # def find_element(self, by=By.ID, value=None, wait=10) -> WebElement:
+    #     _wait = WebDriverWait(self._parent, wait)
+    #     _wait.until(EC.visibility_of_element_located((by, value)))
+    #     return super().find_element(by, value)
