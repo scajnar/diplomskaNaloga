@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from base.base_web_page_element import BasePageElement
+from base.base_page_element import BasePageElement
 from base.page import Page
 
 

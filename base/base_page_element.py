@@ -1,14 +1,19 @@
+import inspect
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
+import logging
+
+from base.logger import Logger
 
 
 class BasePageElement(WebElement):
     def __init__(self, element):
         super().__init__(parent=element._parent, id_=element.id)
+        self.log = Logger()
 
     def scroll_to_element(self):
         """Scrolls to the element."""
@@ -45,7 +50,6 @@ class BasePageElement(WebElement):
     def get_attribute_or_property(self, name):
         return self.get_attribute(name) or self.get_property(name)
 
-    # def find_element(self, by=By.ID, value=None, wait=10) -> WebElement:
-    #     _wait = WebDriverWait(self._parent, wait)
-    #     _wait.until(EC.visibility_of_element_located((by, value)))
-    #     return super().find_element(by, value)
+    def find_element(self, by=By.ID, value=None, wait=10) -> WebElement:
+        print(f'Searching for an element with xpath: {value}')
+        return super().find_element(by, value)

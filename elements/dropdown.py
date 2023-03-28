@@ -1,9 +1,10 @@
 import time
 
 from overrides import overrides
+from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 
-from base.base_web_page_element import BasePageElement
+from base.base_page_element import BasePageElement
 
 
 class Dropdown(BasePageElement):
@@ -21,6 +22,7 @@ class Dropdown(BasePageElement):
             self.click()
             time.sleep(2)
             self.init_expanded()
+
     def collapse(self):
         if self.is_expanded:
             # print(f'COLLAPSE DROPDOWN XPATH JE {self.expand_button_xpath}')
@@ -55,7 +57,10 @@ class HeaderDropdown(Dropdown):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.collapse()
+        try:
+            self.collapse()
+        except StaleElementReferenceException:
+            print('Dropdown has already closed automatically')
         return self
 
     @property
