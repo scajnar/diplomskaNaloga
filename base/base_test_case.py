@@ -4,7 +4,7 @@ import sys
 import time
 
 from selenium.webdriver.common.by import By
-from seleniumbase import BaseCase, Driver
+from seleniumbase import BaseCase
 from selenium import webdriver
 
 from base.logger import Logger

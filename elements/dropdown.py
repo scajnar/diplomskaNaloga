@@ -15,22 +15,17 @@ class Dropdown(BasePageElement):
 
     def expand(self):
         if not self.is_expanded:
-            # self.find_element(By.XPATH, self.expand_button_xpath).click()
-            # self.init_expanded()
-            # self.wait_for_visibility(5)
-            # WebDriverWait.until(EC.element_to_be_clickable(self.about_xpath))
             self.click()
             time.sleep(2)
             self.init_expanded()
+            self.log.info('Expanding dropdown')
 
     def collapse(self):
         if self.is_expanded:
-            # print(f'COLLAPSE DROPDOWN XPATH JE {self.expand_button_xpath}')
-            # self.find_element(By.XPATH, self.expand_button_xpath).click()
-            # self.init_collapsed()
             self.click()
             time.sleep(2)
             self.init_collapsed()
+            self.log.info('Collapsing dropdown')
 
     @property
     def is_expanded(self):
@@ -60,7 +55,7 @@ class HeaderDropdown(Dropdown):
         try:
             self.collapse()
         except StaleElementReferenceException:
-            print('Dropdown has already closed automatically')
+            self.log.info('Dropdown has already closed automatically')
         return self
 
     @property

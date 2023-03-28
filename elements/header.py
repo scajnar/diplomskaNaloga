@@ -26,7 +26,7 @@ class Header(BasePageElement):
             self.about_faculty_button: 'Button' = ...
             self.predstavitev_button: 'Button' = ...
             self.log.info('test message')
-            self.log.info('test message', explicit=True)
+            self.log.info('test message')
 
         def init_expanded(self):
             self.about_faculty_button = Button(self.find_element(By.XPATH, self.about_faculty_xpath))

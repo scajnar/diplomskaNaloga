@@ -18,6 +18,7 @@ class ToggleButton(BasePageElement):
         '''
     def select_option(self, option):
         self.find_element(By.XPATH, self.make_xpath(option)).click()
+        self.log.info(f'Selecting option: {option}')
 
     def make_xpath(self, option):
         return f'.//a[contains(text(), "{option}")]'

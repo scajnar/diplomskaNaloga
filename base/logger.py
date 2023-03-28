@@ -14,30 +14,27 @@ class Logger:
         self.log.setLevel(logging.INFO)
 
         # set up the console handler
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)
+        self.console_handler = logging.StreamHandler()
+        self.console_handler.setLevel(logging.INFO)
 
         # set up the formatter
-        formatter = logging.Formatter('%(asctime)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
-        console_handler.setFormatter(formatter)
-
-        # add the console handler to the logger
-        self.log.addHandler(console_handler)
-
-    def info(self, message, frame=None, explicit=False):
+        self.set_format()
+        
+    def set_format(self, explicit=False):
         if explicit:
-            console_handler = logging.StreamHandler()
-            console_handler.setLevel(logging.INFO)
-
             # set up the formatter
             formatter = logging.Formatter(
                 '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
-            console_handler.setFormatter(formatter)
+        else:
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
+        self.console_handler.setFormatter(formatter)
 
-            # add the console handler to the logger
-            self.log.addHandler(console_handler)
+        # add the console handler to the logger
+        self.log.addHandler(self.console_handler)
 
-
+    def info(self, message, frame=None, explicit=False):
+        self.set_format(explicit)
         if frame is None:
             frame = inspect.currentframe().f_back
 

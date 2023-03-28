@@ -29,7 +29,7 @@ class BasePageElement(WebElement):
 
         # Generate a dynamic filename using the current timestamp
         timestamp = time.strftime('%Y%m%d%H%M%S')
-        screenshot_path = f'/home/samo/diplomskaNaloga/.tmp/screenshot_{timestamp}.png'  # Replace with the path where you want to save the screenshot
+        screenshot_path = f'/home/samo/diplomskaNaloga/.tmp/screenshot_{timestamp}.png'
         self._parent.save_screenshot(screenshot_path)
 
     def wait_for_visibility(self, timeout=10):
@@ -51,5 +51,5 @@ class BasePageElement(WebElement):
         return self.get_attribute(name) or self.get_property(name)
 
     def find_element(self, by=By.ID, value=None, wait=10) -> WebElement:
-        print(f'Searching for an element with xpath: {value}')
+        # self.log.info(f'Searching for an element with xpath: {value}')
         return super().find_element(by, value)
