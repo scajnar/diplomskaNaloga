@@ -1,5 +1,7 @@
 import inspect
 import time
+
+from overrides import overrides
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,7 +22,7 @@ class BasePageElement(WebElement):
         actions = ActionChains(self._parent)
         actions.move_to_element(self).perform()
 
-    def highlight(self, scroll=True):
+    def highlight(self, scroll=False):
         if scroll:
             self.scroll_to_element()
         # Execute the JavaScript code to set the border style of the element
@@ -30,6 +32,7 @@ class BasePageElement(WebElement):
         # Generate a dynamic filename using the current timestamp
         timestamp = time.strftime('%Y%m%d%H%M%S')
         screenshot_path = f'/home/samo/diplomskaNaloga/.tmp/screenshot_{timestamp}.png'
+        # screenshot_path = f'../../.tmp/screenshot_{timestamp}.png'
         self._parent.save_screenshot(screenshot_path)
 
     def wait_for_visibility(self, timeout=10):
@@ -53,3 +56,11 @@ class BasePageElement(WebElement):
     def find_element(self, by=By.ID, value=None, wait=10) -> WebElement:
         # self.log.info(f'Searching for an element with xpath: {value}')
         return super().find_element(by, value)
+
+    @overrides
+    def click(self, highlight=False, log=False):
+        if highlight:
+            self.highlight()
+        if log:
+            self.log.info(f'Clicking {self.text}')
+        super().click()

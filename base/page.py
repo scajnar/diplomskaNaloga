@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from elements.header import Header
+from pages.header import Header
 
 
 class Page:

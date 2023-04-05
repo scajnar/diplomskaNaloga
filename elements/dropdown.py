@@ -46,6 +46,10 @@ class Dropdown(BasePageElement):
 class HeaderDropdown(Dropdown):
     def __init__(self, element):
         super().__init__(element)
+        self.menu_level1_xpath = './/span[contains(@class, "menu-level1") and (text()= "{text}")]'
+        self.menu_level2_xpath = './/span[contains(@class, "menu-level2") and (text()= "{text}")]'
+        self.menu_level3_xpath = './/span[contains(@class, "menu-level3") and (text()= "{text}")]'
+        self.menu_level4_xpath = './/span[contains(@class, "menu-level4") and (text()= "{text}")]'
 
     def __enter__(self):
         self.expand()
@@ -62,3 +66,12 @@ class HeaderDropdown(Dropdown):
     @overrides
     def is_expanded(self):
         return 'menu-level1-open' in self.get_attribute_or_property('class')
+
+    def get_text(self):
+        elems = self.find_elements(By.XPATH, './/span')
+        print("LAAAAAAAAAAAAAAAAAAAAAAAa")
+        print(len(elems))
+        print("[")
+        for elem in elems:
+            print(f"'{elem.text}',")
+        print("]")

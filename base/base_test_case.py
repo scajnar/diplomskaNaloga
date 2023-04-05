@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from seleniumbase import BaseCase
 from selenium import webdriver
 
+from base.driver import Driver
 from base.logger import Logger
 from pages.TO_DEL_documentation_page import DocumentationPage
 from pages.predstavitev_page import PredstavitevPage
@@ -15,7 +16,7 @@ from pages.predstavitev_page import PredstavitevPage
 class BaseTestCase(BaseCase):
     def setUp(self):
         super().setUp()
-        self.driver = webdriver.Chrome()
+        self.driver = Driver().driver
         self.log = Logger()
         # <<< Run custom setUp() code for tests AFTER the super().setUp() >>>
 

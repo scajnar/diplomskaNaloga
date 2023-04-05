@@ -19,15 +19,15 @@ class Logger:
 
         # set up the formatter
         self.set_format()
-        
+
     def set_format(self, explicit=False):
         if explicit:
             # set up the formatter
             formatter = logging.Formatter(
-                '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
+                '%(asctime)s| %(name)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
         else:
             formatter = logging.Formatter(
-                '%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
+                '%(asctime)s| %(message)s (%(filename)s:%(lineno)d)', '%H:%M:%S')
         self.console_handler.setFormatter(formatter)
 
         # add the console handler to the logger
