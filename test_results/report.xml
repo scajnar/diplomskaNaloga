@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="4" time="0.126" timestamp="2023-04-13T10:33:43.394919" hostname="samo"><testcase classname="test_results.test_01_test.TestClass" name="test_01" time="0.001"><failure message="assert 1 == 2">self = &lt;test_01_test.TestClass object at 0x7f95450acd30&gt;
+
+    @pytest.mark.kiwitcms_id(22)
+    def test_01(self):
+        # Initialize the WebDriver (replace with the appropriate driver for your browser)
+        # Verify some elements or properties on the page
+        print("THIS IS A PYTHON TEST")
+&gt;       assert 1==2
+E       assert 1 == 2
+
+test_01_test.py:18: AssertionError</failure></testcase><testcase classname="test_results.test_02_test" name="test_02" time="0.001" /><testcase classname="test_results.test_02_test" name="test_03" time="0.001" /><testcase classname="test_results.test_02_test" name="test_04" time="0.001"><failure message="assert False">def test_04():
+&gt;       assert False
+E       assert False
+
+test_02_test.py:9: AssertionError</failure></testcase></testsuite></testsuites>
