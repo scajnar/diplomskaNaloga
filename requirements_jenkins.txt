@@ -52,7 +52,6 @@ python-redmine
 python-slugify
 pytz
 pyxdg
-PyYAML
 
 selenium==4.8.2
 seleniumbase==4.13.7
