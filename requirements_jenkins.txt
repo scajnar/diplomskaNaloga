@@ -28,7 +28,7 @@ Pygments==2.14.0
 # PyGObject==3.42.1
 PyJWT==2.6.0
 pymacaroons
-PyNaCl=
+PyNaCl
 pynose
 pyOpenSSL
 pyotp
