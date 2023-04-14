@@ -63,6 +63,7 @@ def run_pytest_and_tcms():
     # os.environ["SSL_CERT_FILE"] = "../kiwi/ca.crt"
     path_to_certificate = f"{current_dir}/../kiwi/ca.crt"
     print(path_to_certificate)
+    print(os.system("ls ../kiwi/"))
     os.environ["SSL_CERT_FILE"] = path_to_certificate
     # os.environ["JOB_NAME"] = "TEST TESTPLAN"
     # os.environ["TCMS_PRODUCT_VERSION"] = "1"
