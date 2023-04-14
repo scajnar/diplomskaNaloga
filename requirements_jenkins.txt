@@ -14,9 +14,9 @@ django-tree-queries==0.14.0
 django-uuslug==2.0.0
 django-vinaigrette==2.0.1
 
-tcms-api>=11.3,<12.0
-kiwitcms-junit-xml-plugin==12.0
-kiwitcms-pytest-plugin==0.1.0
+tcms-api
+kiwitcms-junit-xml-plugin
+kiwitcms-pytest-plugin
 kiwitcms==12.0
 kiwitcms-tap-plugin==11.3
 
