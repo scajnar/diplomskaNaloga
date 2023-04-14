@@ -61,7 +61,8 @@ def run_pytest_and_tcms():
     # os.environ["SSL_CERT_FILE"] = "/home/samo/diplomskaNaloga/kiwi/ca.crt"
     current_dir = os.getenv("PWD")
     # os.environ["SSL_CERT_FILE"] = "../kiwi/ca.crt"
-    path_to_certificate = f"{current_dir}/../kiwi/ca.crt"
+    # path_to_certificate = f"{current_dir}/../kiwi/ca.crt"
+    path_to_certificate = f"{current_dir}/ca.crt"
     print(path_to_certificate)
     print(os.system("ls"))
     os.environ["SSL_CERT_FILE"] = path_to_certificate
