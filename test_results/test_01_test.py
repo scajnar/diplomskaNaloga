@@ -10,7 +10,6 @@ export BUILD_NUMBER="1"
 class TestClass:
 
 
-    @pytest.mark.kiwitcms_id(22)
     def test_01(self):
         # Initialize the WebDriver (replace with the appropriate driver for your browser)
         # Verify some elements or properties on the page

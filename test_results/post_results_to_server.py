@@ -58,8 +58,8 @@ test_case_mapping = {
 }
 
 def run_pytest_and_tcms():
-    # ... (existing code) ...
-    os.environ["SSL_CERT_FILE"] = "/home/samo/diplomskaNaloga/kiwi/ca.crt"
+    # os.environ["SSL_CERT_FILE"] = "/home/samo/diplomskaNaloga/kiwi/ca.crt"
+    os.environ["SSL_CERT_FILE"] = "../kiwi/ca.crt"
     # os.environ["JOB_NAME"] = "TEST TESTPLAN"
     # os.environ["TCMS_PRODUCT_VERSION"] = "1"
     # os.environ["BUILD_NUMBER"] = "1"
