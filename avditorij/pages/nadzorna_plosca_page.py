@@ -56,7 +56,7 @@ class NadzornaPloscaPage(Page):
             self.upravljanje_narocnin_button = \
                 Button(self.find_element(By.XPATH, self.upravljanje_narocnin_button_text))
             self.calendar_days = [self.CalendarDay(x) for x in self.find_elements(By.XPATH, self.calendar_days_xpath)]
-            
+
         class CalendarDay(BasePageElement):
             def __init__(self, element):
                 super().__init__(element)

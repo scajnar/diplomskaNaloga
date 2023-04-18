@@ -1,14 +1,12 @@
 from selenium.webdriver.common.by import By
 
+from avditorij.base_elements.base_page_element import BasePageElement
 from pages.header import Header
 
 
-class Page:
-    def __init__(self, driver):
-        self.driver = driver
-
-    def find_element(self, by, value):
-        return self.driver.find_element(by, value)
+class Page(BasePageElement):
+    def __init__(self, element):
+        super().__init__(element)
 
     # @property
     # def current_page(self):
