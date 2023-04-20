@@ -1,4 +1,8 @@
+from selenium.webdriver.common.by import By
+
 from avditorij.base_elements.page import Page
+from avditorij.elements.button import Button
+from avditorij.elements.input import Input
 
 
 class LoginPage(Page):
@@ -18,5 +22,9 @@ class LoginPage(Page):
         self.cookies_must_enabled_text_xpath = './/div[@class="login-cookiemessage"]'
         self.cookies_must_enabled_info_icon_xpath = './/div[@class="login-cookiemessage"]/a'
         self.corner_question_mark_button = './/button[@data-action="footer-popover"]'
+
+        self.username_input = Input(self.find_element(By.XPATH, self.username_input_xpath))
+        self.password_input = Input(self.find_element(By.XPATH, self.password_input_xpath))
+        self.login_button = Button(self.find_element(By.XPATH, self.login_button_xpath))
 
         

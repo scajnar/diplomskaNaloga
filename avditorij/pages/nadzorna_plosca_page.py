@@ -15,8 +15,8 @@ class NadzornaPloscaPage(Page):
         self.casovnica_xpath = f'.//h5[text()="{self.casovnica_text}"]/parent::div[contains(@class, "card-body")]'
         self.koledar_xpath = f'.//h5[text()="{self.koledar_text}"]/parent::div[contains(@class, "card-body")]'
 
-        self.casovnica = self.find_element(By.XPATH, self.casovnica_xpath)
-        self.koledar = self.find_element(By.XPATH, self.koledar_xpath)
+        self.casovnica = self.Casovnica(self.find_element(By.XPATH, self.casovnica_xpath))
+        self.koledar = self.Koledar(self.find_element(By.XPATH, self.koledar_xpath))
 
 
     class Casovnica(BasePageElement):
@@ -47,14 +47,16 @@ class NadzornaPloscaPage(Page):
             self.previous_month_button_xpath = './/a[@class="arrow_link previous"]'
             self.next_month_button_xpath = './/a[@class="arrow_link next"]'
             self.calendar_days_xpath = './/td[@data-region="day"]'
+            self.full_calendar_button_xpath = f'.//a[contains(text(), "{self.full_calendar_button_text}")]'
+            self.upravljanje_narocnin_button_xpath = f'.//a[contains(text(), "{self.upravljanje_narocnin_button_text}")]'
 
             self.predmeti_dropdown = Dropdown(self.find_element(By.XPATH, self.predmeti_dropdown_xpath))
             self.nov_dogodek_button = Button(self.find_element(By.XPATH, self.nov_dogodek_button_xpath))
             self.previous_month_button = Button(self.find_element(By.XPATH, self.previous_month_button_xpath))
             self.next_month_button = Button(self.find_element(By.XPATH, self.next_month_button_xpath))
-            self.full_calendar_button = Button(self.find_element(By.XPATH, self.full_calendar_button_text))
+            self.full_calendar_button = Button(self.find_element(By.XPATH, self.full_calendar_button_xpath))
             self.upravljanje_narocnin_button = \
-                Button(self.find_element(By.XPATH, self.upravljanje_narocnin_button_text))
+                Button(self.find_element(By.XPATH, self.upravljanje_narocnin_button_xpath))
             self.calendar_days = [self.CalendarDay(x) for x in self.find_elements(By.XPATH, self.calendar_days_xpath)]
 
         class CalendarDay(BasePageElement):

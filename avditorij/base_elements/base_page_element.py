@@ -66,6 +66,6 @@ class BasePageElement(WebElement):
         super().click()
 
     def find_auxiliary_element(self, by, xpath):  # Searches for element, returns None if not found
-        elem = self.find_elements(by, xpath)
+        elem = self.find_elements(by=By.XPATH, value=xpath)
         if elem:
             return elem[0]

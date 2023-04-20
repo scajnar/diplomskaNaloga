@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from seleniumbase import BaseCase
 from selenium import webdriver
 
+from avditorij.elements.header import Header
 from base.driver import Driver
 from base.logger import Logger
 from pages.TO_DEL_documentation_page import DocumentationPage
@@ -48,12 +49,5 @@ class BaseTestCase(BaseCase):
     def current_page(self):
         return self.driver.find_element(By.XPATH, '/html/body')
 
-    def get_documentation_page(self):
-        link = 'https://www.selenium.dev/documentation/'
-        self.open(link)
-        return DocumentationPage(self.current_page)
-
-    def get_predstavitev_page(self):
-        link = 'https://www.fe.uni-lj.si/o_fakulteti/fakulteta/predstavitev/'
-        self.open(link)
-        return PredstavitevPage(self.current_page)
+    def get_header(self):
+        return Header(self.current_page)

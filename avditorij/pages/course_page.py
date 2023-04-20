@@ -39,27 +39,48 @@ class CoursePage(Page):
             self.preklici_button_xpath = './/input[@id="id_cancel"]'
             self.zahtevana_polja_text_xpath = './/div[@class="fdescription required"]'
             self.zahtevana_polja_info_icon_xpath = './/div[@class="fdescription required"]/i'
+            # self.row_xpath = './/div[contains(@class, "row")]//label[contains(text(), "{label}")]'
 
 
-        class NastavitveDropdown(BasePageElement):
+        class DropdownSection(BasePageElement):
             def __init__(self, element):
                 super().__init__(element)
-                self.label_xpath = './/label'
-                self.question_mark_icon_xpath = './/i[contains(@class,  "exclamation-circle")]'
-                self.exclamation_mark_icon_xpath = './/i[contains(@class,  "question-circle")]'
+                self.row_xpath = './/label[contains(text(), "{name}")]/ancestor::div[contains(@class, "row")]'
 
-        class DropdownRow(BasePageElement):
+            class Row(BasePageElement):
+                def __init__(self, element):
+                    super().__init__(element)
+                    self.label_xpath = './/label'
+                    self.question_mark_icon_xpath = './/i[contains(@class,  "exclamation-circle")]'
+                    self.exclamation_mark_icon_xpath = './/i[contains(@class,  "question-circle")]'
+                class WithDropdown(BasePageElement):
+                    def __init__(self, element):
+                        super().__init__(element)
+                        self.dropdown_xpath = './/select'
+
+                class WithInput(BasePageElement):
+                    def __init__(self, element):
+                        super().__init__(element)
+                        self.input_xpath = './/input'
+
+
+        class SplosnoDropdownSection(DropdownSection):
             def __init__(self, element):
                 super().__init__(element)
+                self.polno_ime_predmeta_row_text = 'Polno ime predmeta'
+                self.kratko_ime_predmeta_row_text = 'Kratko ime predmeta'
+                self.kategorija_predmeta_row_text = 'Kategorija predmeta'
+                self.vidnost_predmeta_row_text = 'Vidnost predmeta'
+                self.datum_zacetka_predmeta_row_text = 'Datum začetka predmeta'
+                self.datum_zakljucka_predmeta_row_text = 'Datum zaključka predmeta'
+                self.id_stevilka_predmeta_row_text = 'ID številka predmeta'
 
-        class InputRow(BasePageElement):
-            def __init__(self, element):
-                super().__init__(element)
-
-
-        class SplosnoDropdown(Dropdown):
-            def __init__(self, element):
-                super().__init__(element)
-                # //div[contains(@class, "form-group row  fitem")]
+                self.polno_ime_predmeta_row_xpath = self.row_xpath.format("name", self.polno_ime_predmeta_row_text)
+                self.kratko_ime_predmeta_row_xpath = self.row_xpath.format("name", self.kratko_ime_predmeta_row_text)
+                self.kategorija_predmeta_row_xpath = self.row_xpath.format("name", self.kategorija_predmeta_row_text)
+                self.vidnost_predmeta_row_xpath = self.row_xpath.format("name", self.vidnost_predmeta_row_text)
+                self.datum_zacetka_predmeta_row_xpath = self.row_xpath.format("name", self.datum_zacetka_predmeta_row_text)
+                self.datum_zakljucka_predmeta_row_xpath = self.row_xpath.format("name", self.datum_zakljucka_predmeta_row_text)
+                self.id_stevilka_predmeta_row_xpath = self.row_xpath.format("name", self.id_stevilka_predmeta_row_text)
 
 

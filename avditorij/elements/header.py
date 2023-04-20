@@ -1,4 +1,7 @@
+from selenium.webdriver.common.by import By
+
 from avditorij.base_elements.base_page_element import BasePageElement
+from avditorij.elements.button import Button
 
 
 class Header(BasePageElement):
@@ -17,3 +20,7 @@ class Header(BasePageElement):
         self.messages_dropdown_xpath = './/i[contains(@title, "Preklopi predal")]'
         self.user_dropdown_xpath = './/a[contains(@id, "user-menu-toggle")]'
         self.edit_mode_toggle_button_xpath = './/span[@class="custom-control-label"]/parent::div'
+
+        self.domov_button = Button(self.find_element(By.XPATH, self.domov_button_xpath))
+        self.nadzorna_plosca_button = Button(self.find_element(By.XPATH, self.nadzorna_plosca_button_xpath))
+        self.moji_predmeti_button = Button(self.find_element(By.XPATH, self.moji_predmeti_button_xpath))

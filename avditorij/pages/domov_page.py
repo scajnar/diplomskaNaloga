@@ -24,7 +24,7 @@ class DomovPage(Page):
             self.key_icon_xpath = './/div[@class="enrolmenticons"]/i[contains(@class, "fa-key")]'
 
             self.title = self.find_element(By.XPATH, self.title_xpath)
-            self.body = self.find_element(By.XPATH, self.body_xpath)
+            # self.body = self.find_element(By.XPATH, self.body_xpath)
 
             self.key_icon = InfoIcon(self.find_auxiliary_element(By, self.key_icon_xpath))
             self.sign_in_icon_xpath = InfoIcon(self.find_auxiliary_element(By, self.sign_in_icon_xpath))
