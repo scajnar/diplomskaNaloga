@@ -1,0 +1,51 @@
+test_01_testpage.py::Test01LandingPage::test_01_test
+--------------------------------------------------------------------
+Last Page: https://fe.uni-lj.si/sl
+ Duration: 6.32s
+  Browser: Chrome 114.0.5735.106 / headless
+   Driver: chromedriver 114.0.5735.90
+Timestamp: 1686224866  (Unix Timestamp)
+     Date: Thursday, 8 June 2023
+     Time: 1:47:46 PM  (CEST, UTC+01:00)
+--------------------------------------------------------------------
+Traceback:
+  File "/usr/lib/python3.10/unittest/case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.10/unittest/case.py", line 549, in _callTestMethod
+    method()
+  File "/home/samo/faks/diplomskaNaloga/tests/test_01_testpage.py", line 14, in test_01_test
+    header = self.landing_page.get_header()
+  File "/home/samo/faks/diplomskaNaloga/base/page.py", line 18, in get_header
+    return Header(self.driver.find_element(By.XPATH, '//ul[contains(@id, "main-menu")]'))
+  File "/home/samo/sportradar/diplomskaNaloga/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py", line 425, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT, {"using": by, "value": value})["value"]
+  File "/home/samo/sportradar/diplomskaNaloga/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py", line 403, in _execute
+    return self._parent.execute(command, params)
+  File "/home/samo/sportradar/diplomskaNaloga/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/samo/sportradar/diplomskaNaloga/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+Exception: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//ul[contains(@id, "main-menu")]"}
+  (Session info: chrome=114.0.5735.106)
+Stacktrace:
+#0 0x55fddc3634e3 <unknown>
+#1 0x55fddc092c76 <unknown>
+#2 0x55fddc0cec96 <unknown>
+#3 0x55fddc0cedc1 <unknown>
+#4 0x55fddc0c4c16 <unknown>
+#5 0x55fddc0ee03d <unknown>
+#6 0x55fddc0c4b03 <unknown>
+#7 0x55fddc0ee1de <unknown>
+#8 0x55fddc10630e <unknown>
+#9 0x55fddc0edde3 <unknown>
+#10 0x55fddc0c32dd <unknown>
+#11 0x55fddc0c434e <unknown>
+#12 0x55fddc3233e4 <unknown>
+#13 0x55fddc3273d7 <unknown>
+#14 0x55fddc331b20 <unknown>
+#15 0x55fddc328023 <unknown>
+#16 0x55fddc2f61aa <unknown>
+#17 0x55fddc34c6b8 <unknown>
+#18 0x55fddc34c847 <unknown>
+#19 0x55fddc35c243 <unknown>
+#20 0x7f6e4da94b43 <unknown>

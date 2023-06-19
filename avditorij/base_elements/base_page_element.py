@@ -22,7 +22,7 @@ class BasePageElement(WebElement):
         actions = ActionChains(self._parent)
         actions.move_to_element(self).perform()
 
-    def highlight(self, scroll=False):
+    def highlight(self, scroll=True):
         if scroll:
             self.scroll_to_element()
         # Execute the JavaScript code to set the border style of the element

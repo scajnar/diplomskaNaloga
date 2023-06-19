@@ -4,5 +4,10 @@ from avditorij.base_elements.base_page_element import BasePageElement
 
 
 class Input(BasePageElement):
-    def __init__(self, element):
-        super().__init__(element)
+	def __init__(self, element):
+		super().__init__(element)
+
+
+class DatumInput(Input):
+	def __init__(self, element):
+		super().__init__(element)
